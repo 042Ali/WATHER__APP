@@ -12,21 +12,21 @@ export default function App() {
       return;
     }
 
-    const url = `https:open-weather13.p.rapidapi.com/city/${city}/AZ`;
-
+    const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${city}`;
     const options = {
       method: "GET",
       headers: {
         "x-rapidapi-key": "47bcd4b456msh46ea22985323197p1f7088jsneb864d6e650a",
-        "x-rapidapi-host": "open-weather13.p.rapidapi.com",
+        "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
       },
     };
 
     fetch(url, options)
       .then((res) => res.json())
-
       .then((data) => {
         setWeather(data);
+        console.log(data);
+
         setError(null);
       })
       .catch((error) => {
