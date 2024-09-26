@@ -12,7 +12,7 @@ export default function App() {
       return;
     }
 
-    const url = `https:open-weather13.p.rapidapi.com/city/${city}/${country}`;
+    const url = `https:open-weather13.p.rapidapi.com/city/${city}/AZ`;
 
     const options = {
       method: "GET",
@@ -23,6 +23,8 @@ export default function App() {
     };
 
     fetch(url, options)
+      .then((res) => res.json())
+
       .then((data) => {
         setWeather(data);
         setError(null);
@@ -86,7 +88,7 @@ export default function App() {
       )}
 
       {weather && (
-        <div>
+        <div style={{ marginLeft: "600px" }}>
           <h2>{weather.city}</h2>
           <p>Condition: {weather.weather}</p>
           <p>Temperature: {weather.temp_c}°C</p>
